@@ -20,9 +20,31 @@ class _CalendarPageState extends State<CalendarPage> {
   Map<DateTime, List<Event>> myEventsMap = {};
   LinkedHashMap<DateTime, List<Event>> kEventsx =  LinkedHashMap<DateTime, List<Event>>();
 
+  // 2022-08-17
+
+
+
+
   List eventList = [
     {
-      DateTime.now(): [
+      DateTime.parse("2022-08-24"): [
+        Event("Evento 1"),
+      ],
+    },
+    {
+      DateTime.parse("2022-08-25"): [
+        Event("Evento 1"),
+      ],
+    },
+
+    {
+      DateTime.parse("2022-08-26"): [
+        Event("Evento 1"),
+      ],
+    },
+
+    {
+      DateTime.parse("2022-08-31"): [
         Event("Evento 1"),
       ],
     },
@@ -51,6 +73,7 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Calendar Page"),
@@ -86,8 +109,6 @@ class _CalendarPageState extends State<CalendarPage> {
                 setState(() {
                   _selectedDay = selectedDay;
                   _focusedDay = focusedDay;
-                  print(selectedDay);
-                  print(focusedDay);
                 });
               }
             },
