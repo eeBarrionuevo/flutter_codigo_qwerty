@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:qwerty/utils/utils_calendar.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -15,10 +17,36 @@ class _CalendarPageState extends State<CalendarPage> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime? _selectedDay;
 
+  Map<DateTime, List<Event>> myEventsMap = {};
+  LinkedHashMap<DateTime, List<Event>> kEventsx =  LinkedHashMap<DateTime, List<Event>>();
+
+  List eventList = [
+    {
+      DateTime.now(): [
+        Event("Evento 1"),
+      ],
+    },
+  ];
+
+
+  @override
+  initState(){
+    super.initState();
+
+    eventList.forEach((element) {
+      myEventsMap.addAll(element);
+    });
+
+    kEventsx = LinkedHashMap<DateTime, List<Event>>(
+      equals: isSameDay,
+      hashCode: getHashCode,
+    )..addAll(myEventsMap);
+  }
+
 
   List<Event> _getEventsForDay(DateTime day) {
     // Implementation example
-    return kEvents[day] ?? [];
+    return kEventsx[day] ?? [];
   }
 
   @override
