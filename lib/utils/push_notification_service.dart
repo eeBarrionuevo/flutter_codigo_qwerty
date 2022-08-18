@@ -16,6 +16,7 @@ class PushNotificatioService{
 
   static Future _onMessage(RemoteMessage message) async{
     print("Primero");
+    print(message.data);
   }
 
   static Future _onBackgroundMessage(RemoteMessage message) async {
