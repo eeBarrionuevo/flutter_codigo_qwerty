@@ -9,8 +9,17 @@ class PushNotificatioService{
     String token = await messaging.getToken() ?? "x";
     print(token);
 
+    FirebaseMessaging.onMessage.listen(_onMessage);
+    FirebaseMessaging.onBackgroundMessage(_onBackgroundMessage);
 
+  }
 
+  static Future _onMessage(RemoteMessage message) async{
+    print("Primero");
+  }
+
+  static Future _onBackgroundMessage(RemoteMessage message) async {
+    print("Segundo");
   }
 
 
