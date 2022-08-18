@@ -36,7 +36,7 @@ class _AnimationControllerPageState extends State<AnimationControllerPage> with 
     //   // print(pruebaAnimation.value);
     // });
 
-    _turnController.forward();
+    // _turnController.forward();
     //
     // _turnController.addListener(() {
     //   print(_turnAnimation.value);
