@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:qwerty/pages/calendar_page.dart';
 import 'package:qwerty/pages/excel_page.dart';
 import 'package:qwerty/pages/home_page.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Qwerty",
-      home: ExcelPage(),
+      home: CalendarPage(),
     );
   }
 }
