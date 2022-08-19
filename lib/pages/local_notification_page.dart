@@ -12,27 +12,41 @@ class _LocalNotificationPageState extends State<LocalNotificationPage> {
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-  _showLocalNotification() async{
+  _showLocalNotification() async {
+    AndroidInitializationSettings androidInitializationSettings =
+        const AndroidInitializationSettings("@mipmap/ic_launcher",);
 
-    AndroidInitializationSettings _androidInitializationSettings = AndroidInitializationSettings("@mipmap/ic_launcher");
-
-    InitializationSettings _initializationSettings = InitializationSettings(
-      android: _androidInitializationSettings,
+    IOSInitializationSettings iosInitializationSettings = IOSInitializationSettings(
+      defaultPresentAlert: true,
+      defaultPresentBadge: true,
+      defaultPresentSound: true,
+      requestAlertPermission: false,
+      requestBadgePermission: false,
+      requestSoundPermission: false,
     );
 
-    bool? res = await _flutterLocalNotificationsPlugin.initialize(_initializationSettings);
+    InitializationSettings initializationSettings = InitializationSettings(
+      android: androidInitializationSettings,
+      iOS: iosInitializationSettings,
+    );
 
-    // print(res);
+    await _flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
     _flutterLocalNotificationsPlugin.show(
       0,
-      "Hola",
-      "Cuerpo",
+      "Hola 2323",
+      "Cuerpo 23213",
       NotificationDetails(
         android: AndroidNotificationDetails(
           "prueba para el canal ID",
           "prueba del nombre",
-        )
+          enableVibration: true,
+          priority: Priority.max,
+          importance: Importance.max,
+        ),
+        iOS: IOSNotificationDetails(
+          threadIdentifier: "ID PRUEBA IOS",
+        ),
       ),
     );
   }
