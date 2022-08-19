@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:qwerty/pages/calendar_page.dart';
 import 'package:qwerty/pages/excel_page.dart';
 import 'package:qwerty/pages/home_page.dart';
+import 'package:qwerty/pages/local_notification_page.dart';
 import 'package:qwerty/utils/push_notification_service.dart';
 
 void main() async{
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Qwerty",
-      home: CalendarPage(),
+      home: LocalNotificationPage(),
     );
   }
 }
