@@ -10,7 +10,7 @@ import 'package:qwerty/utils/push_notification_service.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await PushNotificatioService.initializedApp();
+  await PushNotificationService.initializedApp();
   runApp(MyApp());
 }
 
